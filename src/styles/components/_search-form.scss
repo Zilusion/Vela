@@ -1,0 +1,74 @@
+@use './../base/mixins' as mixins;
+
+.search-form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 48px;
+	padding: 4px 4px 4px 24px;
+	border: 1px solid rgb(from var(--color-primary) r g b / var(--opacity-20));
+	border-radius: 8px;
+	transition: var(--transition);
+
+	&:has(&__input:focus) {
+		border-color: var(--color-primary);
+	}
+
+	&__input {
+		height: 100%;
+		font-size: 16px;
+		width: 100%;
+		padding-right: 20px;
+		transition: var(--transition);
+
+		&::placeholder {
+			color: rgb(
+				from var(--color-text-primary) r g b / var(--opacity-50)
+			);
+		}
+	}
+
+	&__button {
+		height: 100%;
+		color: var(--color-text-secondary);
+		background-color: var(--color-primary);
+		padding: 11px 20px;
+		border-radius: 4px;
+		transition: var(--transition);
+
+		&:hover {
+			scale: 1.05;
+			background-color: rgb(from var(--color-primary) r g b / 0.9);
+		}
+
+		&:active {
+			scale: 0.95;
+		}
+
+		@include mixins.media-md {
+			padding: 10px;
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	&__button-text {
+		@include mixins.media-md {
+			display: none;
+		}
+	}
+
+	&__button-icon {
+		fill: var(--color-secondary);
+		display: none;
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		@include mixins.media-md {
+			display: inline;
+		}
+	}
+}

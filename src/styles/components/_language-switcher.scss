@@ -1,0 +1,26 @@
+@use './../base/mixins' as mixins;
+
+.language-switcher {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	&__icon {
+		padding-right: 2px;
+		opacity: 0.5;
+	}
+
+	&__item--inactive {
+		opacity: 0.5;
+		color: var(--color-text-primary);
+		border-bottom: 1px solid transparent;
+
+		&:hover {
+			border-color: currentColor;
+		}
+	}
+
+	&__separator {
+		color: var(--color-text-primary);
+	}
+}

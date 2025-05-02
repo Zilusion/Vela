@@ -1,0 +1,24 @@
+mixin menuItem(options = {})
+	- const title = options.title
+	- const iconName = options.iconName
+	- const opensPanel = options.opensPanel
+	- const href = options.href || '#'
+	- const count = options.count
+	- const itemClasses = options.itemClasses || ''
+	- const linkClasses = options.linkClasses || ''
+	- const isParent = !!opensPanel
+
+	li.mega-menu__nav-item(class=itemClasses, role="menuitem")
+		a.mega-menu__nav-link(
+			href=href,
+			class=linkClasses,
+			data-opens-panel=opensPanel,
+			aria-haspopup=(isParent ? "true" : null)
+		)
+			if iconName
+				+icon({ name: iconName, classes: 'mega-menu__nav-icon' })
+			span.mega-menu__nav-label= title
+			if count
+				span.mega-menu__nav-count= count
+			if isParent
+				+icon({ name: 'right', classes: 'mega-menu__nav-arrow' })

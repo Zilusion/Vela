@@ -1,0 +1,51 @@
+@use './../base/mixins' as mixins;
+
+.category-tabs {
+	&__list {
+		display: flex;
+		flex-flow: wrap;
+		column-gap: 0.3vw;
+		row-gap: 1vw;
+
+		@include mixins.media-xl {
+			column-gap: 1vw;
+		}
+	}
+
+	&__item {
+		font-size: 16px;
+		background-color: var(--color-background-secondary);
+		padding-block: 11px;
+		padding-inline: 16px 11px;
+		border-radius: 8px;
+		flex-grow: 1;
+
+		&:hover {
+			.category-tabs__icon {
+				fill: var(--color-primary);
+			}
+		}
+
+		@include mixins.media-xl {
+			font-size: 14px;
+		}
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+	}
+
+	&__icon {
+		width: 20px;
+		height: 20px;
+		fill: rgb(from var(--color-primary) r g b / var(--opacity-50));
+		transition: var(--transition);
+	}
+
+	&__label {
+		color: var(--color-text-primary);
+	}
+}

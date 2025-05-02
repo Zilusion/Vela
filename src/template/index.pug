@@ -10,6 +10,8 @@ include mixins/_search-form.pug
 include mixins/_user-action-item.pug
 include mixins/_category-tab.pug
 include mixins/_build-pc-button.pug
+include mixins/_menu-item.pug
+include mixins/_menu-panel.pug
 
 
 -
@@ -69,76 +71,42 @@ header.header#main-header
 					each tab in categoryTabsData
 						+categoryTab(tab)
 			+buildPcButton({ classes: 'bottom__build-pc-button' })
-main.main(style="background: #e4e4e4; font-size: 20px; height: 200vh;") 
-	p Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Рекламных повстречался наш своих имеет ведущими, маленькая переписывается текст однажды над даль правилами лучше сих! Приставка, свой. Жизни великий ему по всей ее составитель. Это но букв необходимыми всеми, продолжил агентство сбить которой рот текстов коварных, ему что образ снова языкового. Сих взобравшись диких гор рыбными, запятых, подзаголовок великий дал языком своего большой дорогу пунктуация жизни буквоград то правилами знаках использовало переулка до его? Домах, вдали все грамматики, речью живет его, строчка свое текст возвращайся даже переписывается это единственное? Обеспечивает дороге моей, семь снова ручеек деревни? Это если lorem страна большой переулка своего коварный! Дорогу рыбного океана знаках но, по всей снова дороге сбить мир запятой речью моей! Букв строчка по всей грустный взобравшись повстречался языкового маленький над силуэт. Семантика власти всеми скатился переписали домах лучше предложения своих. Что семь великий это, океана дорогу над? Запятой моей семь мир собрал одна. Большой даль использовало продолжил, маленький курсивных несколько необходимыми напоивший грамматики текстами, своего, путь от всех маленькая предупредила запятой осталось они это эта. Языком свой живет, пунктуация рыбного даль вершину встретил переулка его то наш семь маленький грамматики сбить запятой буквенных, несколько ему, щеке меня коварный переписывается снова заманивший жаренные ручеек! Домах себя осталось запятой подзаголовок продолжил, реторический ведущими вопроса большой букв родного! Буквоград пояс даже на берегу заглавных языкового подпоясал одна вскоре заманивший, текстами страну раз, маленькая пунктуация прямо! Языком пунктуация ipsum последний точках грустный? Пунктуация продолжил взобравшись семантика переписали, строчка образ. Необходимыми, образ пунктуация? Обеспечивает предупреждал дорогу рыбного послушавшись путь даль языком пор жизни повстречался? Что составитель деревни выйти то толку, назад не строчка бросил ведущими запятых знаках предупреждал это жаренные по всей речью меня океана своего курсивных повстречался пустился однажды коварный имени рыбными безопасную. Рукопись букв силуэт которое мир назад все взобравшись подпоясал переулка, пунктуация текстов большой последний что вскоре, свою своего толку.
 
+main.main
+	section.hero
+		.container.hero__container
+			.hero__content
+				h1.hero__title Отправляйся в приключения с нашими эпическими лут-корзинами и наборами!
+				p.hero__description Развивай свои навыки, следуя мудрым стратегиям мастеров, и поднимайся на новый уровень мастерства! С нашей поддержкой каждое твое действие станет частью великого искусства, а победы — результатом точного плана и безупречной подготовки!
+				a.button.hero__button(href="#catalog") В каталог
+	section.author-info
+		.container.author-info__container
+			h2.author-info__title Информация об авторе
+			p.author-info__name
+				strong Судоргин Даниил Дмитриевич
+			ul.author-info__contacts
+				li.author-info__contact-item
+					| GitHub:
+					a.author-info__contact-link(href="https://github.com/Zilusion" target="_blank" rel="noopener noreferrer") https://github.com/Zilusion
+				li.author-info__contact-item
+					| Telegram:
+					a.author-info__contact-link(href="https://t.me/sudorgindaniil" target="_blank" rel="noopener noreferrer") @sudorgindaniil
+				li.author-info__contact-item
+					| Телефон:
+					a.author-info__contact-link(href="tel:+79258769646") +7 (925) 876-96-46
+				li.author-info__contact-item
+					| Email:
+					a.author-info__contact-link(href="mailto:ddsudorgin@gmail.com") ddsudorgin@gmail.com
 
-mixin menuItem(options = {})
-	- const title = options.title
-	- const iconName = options.iconName
-	- const opensPanel = options.opensPanel
-	- const href = options.href || '#'
-	- const count = options.count
-	- const itemClasses = options.itemClasses || ''
-	- const linkClasses = options.linkClasses || ''
-	- const isParent = !!opensPanel
-
-	li.mega-menu__nav-item(class=itemClasses, role="menuitem")
-		a.mega-menu__nav-link(
-			href=href,
-			class=linkClasses,
-			data-opens-panel=opensPanel,
-			aria-haspopup=(isParent ? "true" : null)
-		)
-			if iconName
-				+icon({ name: iconName, classes: 'mega-menu__nav-icon' })
-			span.mega-menu__nav-label= title
-			if count
-				span.mega-menu__nav-count= count
-			if isParent
-				+icon({ name: 'arrow-right', classes: 'mega-menu__nav-arrow' })
-
-mixin menuPanel(options = {})
-	- const panelId = options.panelId 
-	- const level = options.level || 1
-	- const title = options.title
-	- const parentPanelId = options.parentPanelId
-	- const isRoot = options.isRoot || false
-	- const panelClasses = options.panelClasses || ''
-	- const ariaLabelledby = options.ariaLabelledby
-
-	.mega-menu__panel(
-		class=`mega-menu__panel--level-${level}`
-		class=panelClasses
-		data-panel-id=panelId
-		data-parent-panel-id=parentPanelId 
-		hidden=!isRoot 
-		role="region" 
-		aria-labelledby=ariaLabelledby 
-	)
-		.mega-menu__header.mega-menu__header--mobile-only
-			button.mega-menu__back-button(type="button", data-closes-panel=panelId, data-opens-panel=parentPanelId)
-				+icon({ name: 'left' })
-				| Назад
-			if title
-				span.mega-menu__title= title
-
-		.mega-menu__panel-content
-			if block
-				block
 
 nav#megaMenu.mega-menu(aria-label="Основное меню" data-hover-delay="200")
 	.container.mega-menu__container
 
-		//- ==========================================================
-		//- Panel 0: Mobile Entry Point (NEW)
-		//-         (Contains utility links + "Catalog" trigger)
-		//-         This panel is effectively ignored on desktop by CSS/JS
-		//- ==========================================================
 		+menuPanel({ panelId: 'entry', isRoot: true, panelClasses: 'mega-menu__panel--entry' })
 			.mega-menu__mobile-header-info
 				+location({
 					classes: 'menu__location',
+					location: 'г. Москва'
 				})
 				+hours({classes: 'menu__hours', needIcon: true})
 				.socials.menu__socials 
@@ -146,7 +114,6 @@ nav#megaMenu.mega-menu(aria-label="Основное меню" data-hover-delay="
 					+actionItem({ href: '/', iconName: 'whatsapp', iconClass: 'socials__icon socials__icon--whatsapp',  classes: 'socials__item socials__item--whatsapp' })
 
 
-			//- Основная навигация первого уровня МОБИЛЬНОГО меню
 			ul.mega-menu__nav-list(role="menu")
 				+menuItem({ title: 'Каталог', iconName: 'catalog', opensPanel: 'root', itemClasses: 'has-submenu' })
 				each tab in categoryTabsData
@@ -156,11 +123,6 @@ nav#megaMenu.mega-menu(aria-label="Основное меню" data-hover-delay="
 			+nav-list({ classes: 'mobile-menu__footer-nav', items:['Доставка', 'Оплата', 'Контакты'] })
 
 
-		//- ==========================================================
-		//- Panel 1: Main Categories (Previously 'root')
-		//-         (Opened by "Catalog" on mobile, visible by default on desktop)
-		//- ==========================================================
-		//- Теперь это НЕ isRoot, и имеет parentPanelId = 'entry'
 		h2#mega-menu-main-heading.visually-hidden Основные разделы каталога
 		+menuPanel({
 			panelId: 'root',
@@ -179,21 +141,64 @@ nav#megaMenu.mega-menu(aria-label="Основное меню" data-hover-delay="
 				+menuItem({ title: 'Новинки', iconName: 'new', href: '/new' })
 
 
-		//- ==========================================================
-		//- Panel 2: Sub-categories (smartphones-gadgets, laptops, etc.)
-		//- ==========================================================
 		+menuPanel({ panelId: 'smartphones-gadgets', level: 2, parentPanelId: 'root', title: 'Смартфоны и гаджеты', panelClasses: 'mega-menu__panel--has-columns' })
 			.mega-menu__column
 				h3.mega-menu__column-title Смартфоны
 				ul.mega-menu__nav-list(role="menu")
+					+menuItem({ title: 'Apple iPhone', href: '/catalog/apple', count: 123 })
+					+menuItem({ title: 'Samsung Galaxy', href: '/catalog/samsung', count: 185 })
+					+menuItem({ title: 'Xiaomi / POCO', href: '/catalog/xiaomi', count: 210 })
+					+menuItem({ title: 'Realme', href: '/catalog/realme', count: 120 })
+					+menuItem({ title: 'Huawei / Honor', href: '/catalog/huawei', count: 95 })
+					+menuItem({ title: 'Google Pixel', href: '/catalog/pixel', count: 40 })
+					+menuItem({ title: 'Складные смартфоны', href: '/catalog/foldable', count: 30 })
+					+menuItem({ title: 'Кнопочные телефоны', href: '/catalog/feature-phones', count: 23 })
 			.mega-menu__column
 				h3.mega-menu__column-title Гаджеты
 				ul.mega-menu__nav-list(role="menu")
+					+menuItem({ title: 'Смарт-часы', href: '/catalog/smartwatch', count: 115 })
+					+menuItem({ title: 'Фитнес-браслеты', href: '/catalog/fitness-trackers', count: 88 })
+					+menuItem({ title: 'Наушники и гарнитуры', href: '/catalog/headsets', count: 350})
+					+menuItem({ title: 'Портативная акустика', href: '/catalog/portable-speakers', count: 142 })
+					+menuItem({ title: 'Умные гаджеты', href: '/catalog/smart-gadgets', count: 46 })
+					+menuItem({ title: 'VR-очки и шлемы', href: '/catalog/vr', count: 49 })
+					+menuItem({ title: 'Внешние аккумуляторы', href: '/catalog/powerbanks', count: 205 })
+					+menuItem({ title: 'Аксессуары для гаджетов', href: '/catalog/gadget-accessories', count: 500 })
+
 
 		+menuPanel({ panelId: 'laptops', level: 2, parentPanelId: 'root', title: 'Ноутбуки и компьютеры' })
-			p Содержимое для ноутбуков...
+			ul.mega-menu__nav-list(role="menu")
+				+menuItem({ title: 'Ноутбуки', href: '/catalog/laptops', count: 450 })
+				+menuItem({ title: 'Игровые ноутбуки', href: '/catalog/gaming-laptops', count: 120 })
+				+menuItem({ title: 'Ультрабуки', href: '/catalog/ultrabooks', count: 90 })
+				+menuItem({ title: 'Планшеты', href: '/catalog/tablets', count: 280 })
+				+menuItem({ title: 'Моноблоки', href: '/catalog/all-in-one', count: 60 })
+				+menuItem({ title: 'Системные блоки', href: '/catalog/desktops', count: 150 })
+				+menuItem({ title: 'Мониторы', href: '/catalog/monitors', count: 310 })
+				+menuItem({ title: 'Комплектующие для ПК', href: '/catalog/pc-parts', count: 78  })
+
+
 		+menuPanel({ panelId: 'tv', level: 2, parentPanelId: 'root', title: 'Телевизоры и цифровое ТВ' })
-			p Содержимое для ТВ...
+			ul.mega-menu__nav-list(role="menu")
+				+menuItem({ title: 'Телевизоры LED', href: '/catalog/tv/led', count: 250 })
+				+menuItem({ title: 'Телевизоры QLED', href: '/catalog/tv/qled', count: 80 })
+				+menuItem({ title: 'Телевизоры OLED', href: '/catalog/tv/oled', count: 55 })
+				+menuItem({ title: 'Проекторы', href: '/catalog/projectors', count: 70 })
+				+menuItem({ title: 'Саундбары', href: '/catalog/soundbars', count: 95 })
+				+menuItem({ title: 'ТВ-приставки и медиаплееры', href: '/catalog/media-players', count: 110 })
+				+menuItem({ title: 'Антенны и кабели', href: '/catalog/tv-accessories', count: 150 })
+				+menuItem({ title: 'Кронштейны для ТВ', href: '/catalog/tv-mounts', count: 200 })
+
+
 		+menuPanel({ panelId: 'audio', level: 2, parentPanelId: 'root', title: 'Аудиотехника' })
-			p Содержимое для Аудио...
+			ul.mega-menu__nav-list(role="menu")
+				+menuItem({ title: 'Наушники и гарнитуры', href: '/catalog/headsets', count: 350})
+				+menuItem({ title: 'Портативная акустика', href: '/catalog/portable-speakers', count: 142 })
+				+menuItem({ title: 'Домашние аудиосистемы', href: '/catalog/home-audio', count: 65 })
+				+menuItem({ title: 'Виниловые проигрыватели', href: '/catalog/turntables', count: 40 })
+				+menuItem({ title: 'Автомагнитолы и автоакустика', href: '/catalog/car-audio', count: 180 })
+				+menuItem({ title: 'Диктофоны', href: '/catalog/dictaphones', count: 35 })
+				+menuItem({ title: 'Радиоприемники', href: '/catalog/radios', count: 50 })
+				+menuItem({ title: 'Микрофоны', href: '/catalog/microphones', count: 100 })
+
 

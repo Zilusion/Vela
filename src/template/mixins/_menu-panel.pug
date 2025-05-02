@@ -1,0 +1,27 @@
+mixin menuPanel(options = {})
+	- const panelId = options.panelId 
+	- const level = options.level || 1
+	- const title = options.title
+	- const parentPanelId = options.parentPanelId
+	- const isRoot = options.isRoot || false
+	- const panelClasses = options.panelClasses || ''
+	- const ariaLabelledby = options.ariaLabelledby
+
+	.mega-menu__panel(
+		class=`mega-menu__panel--level-${level}`
+		class=panelClasses
+		data-panel-id=panelId
+		data-parent-panel-id=parentPanelId 
+		hidden=!isRoot 
+		role="region" 
+		aria-labelledby=ariaLabelledby 
+	)
+		.mega-menu__header.mega-menu__header--mobile-only
+			button.mega-menu__back-button(type="button", data-closes-panel=panelId, data-opens-panel=parentPanelId)
+				+icon({ name: 'left' })
+			if title
+				span.mega-menu__title= title
+
+		.mega-menu__panel-content
+			if block
+				block

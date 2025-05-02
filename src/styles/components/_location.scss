@@ -1,0 +1,22 @@
+@use './../base/mixins' as mixins;
+
+.location {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	&__icon {
+		opacity: 0.5;
+	}
+
+	&__text {
+		border-bottom: 1px solid transparent;
+		transition: var(--transition);
+	}
+
+	&:hover {
+		.location__text {
+			border-color: var(--color-primary);
+		}
+	}
+}

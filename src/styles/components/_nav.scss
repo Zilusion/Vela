@@ -1,0 +1,22 @@
+@use './../base/mixins' as mixins;
+
+.nav {
+	&__list {
+		display: flex;
+		gap: 16px;
+		align-items: center;
+	}
+
+	&__item {
+		&:hover {
+			.nav__link {
+				color: var(--color-text-accent);
+			}
+		}
+	}
+
+	&__link {
+		color: var(--color-text-primary);
+		transition: var(--transition);
+	}
+}

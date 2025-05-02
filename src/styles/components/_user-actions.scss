@@ -1,0 +1,55 @@
+@use './../base/mixins' as mixins;
+
+.user-actions {
+	display: flex;
+	gap: 16px;
+	height: 48px;
+
+	&__item {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: 48px;
+		height: 48px;
+		border-radius: 4px;
+		border: 1px solid var(--color-border);
+
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: var(--color-dark);
+			transition: var(--transition);
+		}
+
+		&:hover {
+			svg {
+				fill: var(--color-primary);
+			}
+		}
+
+		&:active {
+			svg {
+				scale: 0.9;
+			}
+		}
+
+		@include mixins.media-md {
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	&__badge {
+		position: absolute;
+		top: -10px;
+		right: -4px;
+		font-size: 12px;
+		color: var(--color-secondary);
+		background-color: var(--color-primary);
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+	}
+}

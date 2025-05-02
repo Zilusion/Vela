@@ -1,0 +1,23 @@
+@use './../base/mixins' as mixins;
+
+.phone {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	
+	&__icon {
+		opacity: 0.5;
+	}
+
+	&__link {
+		border-bottom: 1px solid transparent;
+		color: var(--color-text-primary);
+		transition: var(--transition);
+	}
+
+	&:hover {
+		.phone__link {
+			border-color: var(--color-primary);
+		}
+	}
+}

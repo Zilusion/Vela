@@ -1,0 +1,14 @@
+@use './../base/mixins' as mixins;
+
+.hours {
+	border-bottom: 1px solid transparent;
+	transition: var(--transition);
+
+	&__text {
+		padding-right: 8px;
+	}
+
+	&:hover {
+		border-color: var(--color-primary);
+	}
+}

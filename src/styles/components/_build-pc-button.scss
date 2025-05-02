@@ -1,0 +1,39 @@
+@use './../base/mixins' as mixins;
+
+.build-pc-button {
+	padding: 11px 6px;
+	font-size: 16px;
+	background-color: var(--color-background-secondary);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	transition: var(--transition);
+	align-self: flex-start;
+	margin-left: 0.8vw;
+
+	@include mixins.media-xl {
+		margin-left: 1vw;
+	}
+
+	&__icon {
+		stroke: var(--color-primary);
+		transition: var(--transition);
+	}
+
+	&__text {
+		color: var(--color-text-accent);
+		transition: var(--transition);
+	}
+
+	&:hover {
+		background-color: var(--color-primary);
+
+		.build-pc-button__icon {
+			stroke: var(--color-secondary);
+		}
+
+		.build-pc-button__text {
+			color: var(--color-text-secondary);
+		}
+	}
+}

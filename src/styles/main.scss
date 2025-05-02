@@ -2,9 +2,22 @@
 @forward 'base/mixins';
 @forward 'base/reset';
 @forward 'base/typography';
-@forward 'base/buttons';
 @forward 'base/global';
 @forward 'base/containers';
 @forward 'base/icons';
 
-@use 'sections/page';
+@use 'components/language-switcher';
+@use 'components/location';
+@use 'components/phone';
+@use 'components/hours';
+@use 'components/nav';
+@use 'components/menu-toggle';
+@use 'components/search-form';
+@use 'components/socials';
+@use 'components/user-actions';
+@use 'components/category-tabs';
+@use 'components/build-pc-button';
+@use 'components/header';
+@use 'components/menu';
+@use 'components/hero';
+@use 'components/author-info';

@@ -1,0 +1,34 @@
+@use './../base/mixins' as mixins;
+
+.socials {
+	display: flex;
+	gap: 10px;
+
+	&__item {
+		width: 48px;
+		height: 48px;
+		display: grid;
+		place-items: center;
+		border-radius: 4px;
+		transition: var(--transition);
+
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: var(--color-dark);
+			transition: inherit;
+		}
+
+		&:hover {
+			background-color: var(--color-background-hover);
+
+			svg {
+				fill: var(--color-primary);
+			}
+		}
+
+		&:active {
+			scale: 0.9;
+		}
+	}
+}
