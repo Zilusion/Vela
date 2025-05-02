@@ -1,0 +1,199 @@
+include mixins/_icon.pug
+include mixins/_language-switcher.pug
+include mixins/_location.pug
+include mixins/_hours.pug
+include mixins/_phone.pug
+include mixins/_nav-list.pug
+include mixins/_logo.pug
+include mixins/_menu-toggle.pug
+include mixins/_search-form.pug
+include mixins/_user-action-item.pug
+include mixins/_category-tab.pug
+include mixins/_build-pc-button.pug
+
+
+-
+	const categoryTabsData = [
+		{ href: '/sales', iconName: 'fire', label: 'Акции' },
+		{ href: '/hot', iconName: 'lighting', label: 'Горячее предложение' },
+		{ href: '/gifts', iconName: 'chest-with-skull', label: 'Подарочные наборы' },
+		{ href: '/events', iconName: 'quest', label: 'События' },
+		{ href: '/brands', iconName: 'orc', label: 'Наши бренды' }
+	]
+
+#header-observer-sentinel(style="height: 0; pointer-events: none; visibility: hidden;")
+header.header#main-header
+	.top.header__top 
+		.container.top__container 
+			.top__info 
+				+languageSwitcher({
+					classes: 'top__language-switcher',
+					currentLanguage: 'ru'
+				})
+				+location({
+					classes: 'top__location',
+				})
+				+phone({
+					classes: 'top__phone',
+				})
+			+hours({classes: 'top__hours'})
+			+nav-list({
+				classes: 'top__nav', 
+				items:['Доставка', 'Оплата', 'Контакты']
+			})
+
+	.center.header__center
+		.container.center__container
+			+logo({classes: 'center__logo'})
+			+menuToggle({ classes: 'center__menu-toggle', controlsId: 'megaMenu' })
+			+searchForm({
+				classesForm: 'center__search-form',
+				buttonIconId: 'search'
+			})
+			.socials.center__socials 
+				+actionItem({ href: '/', iconName: 'telegram', iconClass: 'socials__icon socials__icon--telegram', classes: 'socials__item socials__item--telegram' })
+				+actionItem({ href: '/', iconName: 'whatsapp', iconClass: 'socials__icon socials__icon--whatsapp',  classes: 'socials__item socials__item--whatsapp' })
+			+languageSwitcher({
+				classes: 'center__language-switcher',
+				currentLanguage: 'ru'
+			})
+			.user-actions.center__user-actions
+				+actionItem({ href: '/wishlist', iconName: 'heart', iconClass: 'user-actions__icon  user-actions__icon--heart', ariaLabel: 'Избранное', classes: 'user-actions__item user-actions__item--wishlist' })
+				+actionItem({ href: '/compare', iconName: 'hunter', iconClass: 'user-actions__icon  user-actions__icon--compare', ariaLabel: 'Сравнение', classes: 'user-actions__item user-actions__item--compare' })
+				+actionItem({ href: '/cart', iconName: 'chest', iconClass: 'user-actions__icon  user-actions__icon--cart', ariaLabel: 'Корзина', badgeCount: '20', classes: 'user-actions__item user-actions__item--cart' })
+
+	.bottom.header__bottom
+		.container.bottom__container
+			nav.category-tabs.bottom__category-tabs
+				ul.category-tabs__list
+					each tab in categoryTabsData
+						+categoryTab(tab)
+			+buildPcButton({ classes: 'bottom__build-pc-button' })
+main.main(style="background: #e4e4e4; font-size: 20px; height: 200vh;") 
+	p Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Рекламных повстречался наш своих имеет ведущими, маленькая переписывается текст однажды над даль правилами лучше сих! Приставка, свой. Жизни великий ему по всей ее составитель. Это но букв необходимыми всеми, продолжил агентство сбить которой рот текстов коварных, ему что образ снова языкового. Сих взобравшись диких гор рыбными, запятых, подзаголовок великий дал языком своего большой дорогу пунктуация жизни буквоград то правилами знаках использовало переулка до его? Домах, вдали все грамматики, речью живет его, строчка свое текст возвращайся даже переписывается это единственное? Обеспечивает дороге моей, семь снова ручеек деревни? Это если lorem страна большой переулка своего коварный! Дорогу рыбного океана знаках но, по всей снова дороге сбить мир запятой речью моей! Букв строчка по всей грустный взобравшись повстречался языкового маленький над силуэт. Семантика власти всеми скатился переписали домах лучше предложения своих. Что семь великий это, океана дорогу над? Запятой моей семь мир собрал одна. Большой даль использовало продолжил, маленький курсивных несколько необходимыми напоивший грамматики текстами, своего, путь от всех маленькая предупредила запятой осталось они это эта. Языком свой живет, пунктуация рыбного даль вершину встретил переулка его то наш семь маленький грамматики сбить запятой буквенных, несколько ему, щеке меня коварный переписывается снова заманивший жаренные ручеек! Домах себя осталось запятой подзаголовок продолжил, реторический ведущими вопроса большой букв родного! Буквоград пояс даже на берегу заглавных языкового подпоясал одна вскоре заманивший, текстами страну раз, маленькая пунктуация прямо! Языком пунктуация ipsum последний точках грустный? Пунктуация продолжил взобравшись семантика переписали, строчка образ. Необходимыми, образ пунктуация? Обеспечивает предупреждал дорогу рыбного послушавшись путь даль языком пор жизни повстречался? Что составитель деревни выйти то толку, назад не строчка бросил ведущими запятых знаках предупреждал это жаренные по всей речью меня океана своего курсивных повстречался пустился однажды коварный имени рыбными безопасную. Рукопись букв силуэт которое мир назад все взобравшись подпоясал переулка, пунктуация текстов большой последний что вскоре, свою своего толку.
+
+
+mixin menuItem(options = {})
+	- const title = options.title
+	- const iconName = options.iconName
+	- const opensPanel = options.opensPanel
+	- const href = options.href || '#'
+	- const count = options.count
+	- const itemClasses = options.itemClasses || ''
+	- const linkClasses = options.linkClasses || ''
+	- const isParent = !!opensPanel
+
+	li.mega-menu__nav-item(class=itemClasses, role="menuitem")
+		a.mega-menu__nav-link(
+			href=href,
+			class=linkClasses,
+			data-opens-panel=opensPanel,
+			aria-haspopup=(isParent ? "true" : null)
+		)
+			if iconName
+				+icon({ name: iconName, classes: 'mega-menu__nav-icon' })
+			span.mega-menu__nav-label= title
+			if count
+				span.mega-menu__nav-count= count
+			if isParent
+				+icon({ name: 'arrow-right', classes: 'mega-menu__nav-arrow' })
+
+mixin menuPanel(options = {})
+	- const panelId = options.panelId 
+	- const level = options.level || 1
+	- const title = options.title
+	- const parentPanelId = options.parentPanelId
+	- const isRoot = options.isRoot || false
+	- const panelClasses = options.panelClasses || ''
+	- const ariaLabelledby = options.ariaLabelledby
+
+	.mega-menu__panel(
+		class=`mega-menu__panel--level-${level}`
+		class=panelClasses
+		data-panel-id=panelId
+		data-parent-panel-id=parentPanelId 
+		hidden=!isRoot 
+		role="region" 
+		aria-labelledby=ariaLabelledby 
+	)
+		.mega-menu__header.mega-menu__header--mobile-only
+			button.mega-menu__back-button(type="button", data-closes-panel=panelId, data-opens-panel=parentPanelId)
+				+icon({ name: 'left' })
+				| Назад
+			if title
+				span.mega-menu__title= title
+
+		.mega-menu__panel-content
+			if block
+				block
+
+nav#megaMenu.mega-menu(aria-label="Основное меню" data-hover-delay="200")
+	.container.mega-menu__container
+
+		//- ==========================================================
+		//- Panel 0: Mobile Entry Point (NEW)
+		//-         (Contains utility links + "Catalog" trigger)
+		//-         This panel is effectively ignored on desktop by CSS/JS
+		//- ==========================================================
+		+menuPanel({ panelId: 'entry', isRoot: true, panelClasses: 'mega-menu__panel--entry' })
+			.mega-menu__mobile-header-info
+				+location({
+					classes: 'menu__location',
+				})
+				+hours({classes: 'menu__hours', needIcon: true})
+				.socials.menu__socials 
+					+actionItem({ href: '/', iconName: 'telegram', iconClass: 'socials__icon socials__icon--telegram', classes: 'socials__item socials__item--telegram' })
+					+actionItem({ href: '/', iconName: 'whatsapp', iconClass: 'socials__icon socials__icon--whatsapp',  classes: 'socials__item socials__item--whatsapp' })
+
+
+			//- Основная навигация первого уровня МОБИЛЬНОГО меню
+			ul.mega-menu__nav-list(role="menu")
+				+menuItem({ title: 'Каталог', iconName: 'catalog', opensPanel: 'root', itemClasses: 'has-submenu' })
+				each tab in categoryTabsData
+					+menuItem({ title: tab.label, iconName: tab.iconName, href: tab.href })
+			.mega-menu__actions
+				+buildPcButton({ classes: 'mobile-menu__build-pc' })
+			+nav-list({ classes: 'mobile-menu__footer-nav', items:['Доставка', 'Оплата', 'Контакты'] })
+
+
+		//- ==========================================================
+		//- Panel 1: Main Categories (Previously 'root')
+		//-         (Opened by "Catalog" on mobile, visible by default on desktop)
+		//- ==========================================================
+		//- Теперь это НЕ isRoot, и имеет parentPanelId = 'entry'
+		h2#mega-menu-main-heading.visually-hidden Основные разделы каталога
+		+menuPanel({
+			panelId: 'root',
+			isRoot: false,
+			parentPanelId: 'entry', 
+			title: 'Каталог',
+			panelClasses: 'mega-menu__panel--root-categories', 
+			ariaLabelledby: 'mega-menu-main-heading'
+		})
+			ul.mega-menu__nav-list(role="menu")
+				+menuItem({ title: 'Смартфоны и гаджеты', iconName: 'mobile', opensPanel: 'smartphones-gadgets', itemClasses: 'has-submenu' })
+				+menuItem({ title: 'Ноутбуки и компьютеры', iconName: 'laptop', opensPanel: 'laptops', itemClasses: 'has-submenu' })
+				+menuItem({ title: 'Телевизоры и цифровое ТВ', iconName: 'tv', opensPanel: 'tv', itemClasses: 'has-submenu' })
+				+menuItem({ title: 'Аудиотехника', iconName: 'speaker', opensPanel: 'audio', itemClasses: 'has-submenu' })
+				+menuItem({ title: 'Акции', iconName: 'fire', href: '/sales' })
+				+menuItem({ title: 'Новинки', iconName: 'new', href: '/new' })
+
+
+		//- ==========================================================
+		//- Panel 2: Sub-categories (smartphones-gadgets, laptops, etc.)
+		//- ==========================================================
+		+menuPanel({ panelId: 'smartphones-gadgets', level: 2, parentPanelId: 'root', title: 'Смартфоны и гаджеты', panelClasses: 'mega-menu__panel--has-columns' })
+			.mega-menu__column
+				h3.mega-menu__column-title Смартфоны
+				ul.mega-menu__nav-list(role="menu")
+			.mega-menu__column
+				h3.mega-menu__column-title Гаджеты
+				ul.mega-menu__nav-list(role="menu")
+
+		+menuPanel({ panelId: 'laptops', level: 2, parentPanelId: 'root', title: 'Ноутбуки и компьютеры' })
+			p Содержимое для ноутбуков...
+		+menuPanel({ panelId: 'tv', level: 2, parentPanelId: 'root', title: 'Телевизоры и цифровое ТВ' })
+			p Содержимое для ТВ...
+		+menuPanel({ panelId: 'audio', level: 2, parentPanelId: 'root', title: 'Аудиотехника' })
+			p Содержимое для Аудио...
+

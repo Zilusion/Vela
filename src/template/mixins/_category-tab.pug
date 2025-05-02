@@ -1,0 +1,8 @@
+mixin categoryTab(options = {})
+	- const href = options.href || '#'
+	- const iconName = options.iconName || ''
+	- const label = options.label || ''
+	li.category-tabs__item
+		a.category-tabs__link(href=href)
+			+icon({name: iconName, classes: 'category-tabs__icon', mode: 'symbol'})
+			span.category-tabs__label= label

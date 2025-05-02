@@ -1,0 +1,11 @@
+mixin menuToggle(options = {})
+	- const controlsId = options.controlsId || 'main-menu'
+	- const labelOpen = options.labelOpen || 'Открыть меню'
+	- const labelClose = options.labelClose || 'Закрыть меню'
+	- const classes = options.classes || ''
+
+	button.menu-toggle(type="button", aria-label=labelOpen, aria-controls=controlsId, aria-expanded="false", class=classes)
+		span.menu-toggle__icon
+			span.menu-toggle__icon-line
+			span.menu-toggle__icon-line
+			span.menu-toggle__icon-line

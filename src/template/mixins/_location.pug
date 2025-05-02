@@ -1,0 +1,7 @@
+mixin location(options = {})
+	- const classes = options.classes || ''
+	- const location = options.location || 'Сайлент-Хилл'
+
+	.location(class=classes)
+		+icon({name: 'pin', classes: 'location__icon'})
+		.location__text= location

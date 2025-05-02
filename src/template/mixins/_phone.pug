@@ -1,0 +1,7 @@
+mixin phone(options = {})
+	- const classes = options.classes || ''
+	- const phone = options.phone || '+7 555 555-37-50'
+
+	.phone(class=classes)
+		+icon({name: 'phone', classes: 'phone__icon'})
+		a.phone__link(href=`tel:${phone}`)= phone

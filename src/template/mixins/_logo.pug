@@ -1,0 +1,8 @@
+mixin logo(options = {})
+	- const href = options.href || '/'
+	- const iconName = options.iconName || 'logo'
+	- const ariaLabel = options.ariaLabel || 'На главную'
+	- const classes = options.classes || ''
+
+	a.logo(href=href, class=classes, aria-label=ariaLabel)
+		+icon({name: iconName, mode: 'stack'})

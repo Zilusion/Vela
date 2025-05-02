@@ -1,0 +1,8 @@
+mixin buildPcButton(options = {})
+	- const text = options.text || 'Собрать компьютер'
+	- const iconName = options.iconName || 'plus'
+	- const classes = options.classes || ''
+
+	button.button.build-pc-button(class=classes, type='button')
+		+icon({name: iconName, classes: 'build-pc-button__icon'})
+		span.build-pc-button__text= text

@@ -1,0 +1,9 @@
+mixin nav-list(options= {})
+	- const classes = options.classes || ''
+	- const items = options.items || []
+
+	nav.nav(class=classes)
+		ul.nav__list
+			each item in items 
+				li.nav__item 
+					a.nav__link(href=`#`)= item

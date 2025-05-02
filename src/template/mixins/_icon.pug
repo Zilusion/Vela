@@ -1,0 +1,13 @@
+mixin icon(options = {})
+	- const name = options.name
+	- const classes = options.classes || ''
+	- const mode = options.mode || 'symbol'
+
+	- let spriteFileName = 'icon-sprite-symbol.svg'
+	- if (mode === 'stack') spriteFileName = 'icon-sprite-stack.svg'
+
+	- const iconPath = `/${spriteFileName}#${name}`
+
+	if name
+		svg.icon(class=classes, aria-hidden="true")
+			use(href=iconPath)

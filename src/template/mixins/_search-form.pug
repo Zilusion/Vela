@@ -1,0 +1,15 @@
+mixin searchForm(options = {})
+	- const action = options.action || '/search'
+	- const placeholder = options.placeholder || 'Поиск товаров...'
+	- const buttonText = options.buttonText || 'Найти'
+	- const buttonIconName = options.buttonIconName || 'search'
+	- const classesForm = options.classesForm || ''
+	- const classesInput = options.classesInput || ''
+	- const classesButton = options.classesButton || ''
+
+	form.search-form(action=action, class=classesForm)
+		input.search-form__input(type="search" name="search", placeholder=placeholder, class=classesInput)
+		button.button.search-form__button(type="submit", class=classesButton)
+			span.search-form__button-text= buttonText
+			span.search-form__button-icon
+				+icon({name: buttonIconName})

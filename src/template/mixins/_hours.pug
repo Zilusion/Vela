@@ -1,0 +1,12 @@
+mixin hours(options = {})
+	- const classes = options.classes || ''
+	- const needIcon = options.needIcon === true
+	- const from = options.from || '9:00'
+	- const to = options.to || '21:00'
+
+	.hours(class=classes)
+		if needIcon
+			+icon({name: 'clock', classes: 'hours__icon'})
+		span.hours__text Ежедневно
+		time(hours__from) #{from} —
+		time(hours__to) #{to}

@@ -1,0 +1,15 @@
+mixin languageSwitcher(options = {})
+	- const classes = options.classes || ''
+	- const currentLanguage = options.currentLanguage || 'ru'
+
+	.language-switcher(class=classes)
+		+icon({name: 'earth', classes: 'language-switcher__icon'})
+
+		if currentLanguage === 'ru'
+			span.language-switcher__item.language-switcher__item--active(aria-current="true") RU
+			span.language-switcher__separator(aria-hidden="true") |
+			a.language-switcher__item.language-switcher__item--inactive(href="/en") EN
+		else
+			a.language-switcher__item.switcher__item--inactive(href="/ru") RU
+			span.language-switcher__separator(aria-hidden="true") |
+			span.language-switcher__item.language-switcher__item--active(aria-current="true") EN

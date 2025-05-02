@@ -1,0 +1,12 @@
+mixin actionItem(options = {})
+	- const href = options.href || '#'
+	- const iconName = options.iconName || ''
+	- const iconClass = options.iconClass || ''
+	- const ariaLabel = options.ariaLabel || ''
+	- const badgeCount = options.badgeCount
+	- const classes = options.classes || ''
+
+	a(href=href, aria-label=ariaLabel, class=classes)
+		+icon({name: iconName, classes: `${iconClass}`})
+		if badgeCount
+			span.user-actions__badge= badgeCount
